@@ -26,7 +26,9 @@ function CadastroCategoria() {
   }
 
   useEffect(async () => {
-    const URL = 'http://localhost:8080/categorias';
+    const URL = window.location.href.includes('localhost')
+      ? 'http://localhost:8080/categorias'
+      : 'https://mykeflix.herokuapp.com/categorias';
     const response = await fetch(URL);
     const categorias = await response.json();
     setLista(categorias);
