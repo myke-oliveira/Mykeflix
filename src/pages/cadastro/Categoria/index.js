@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import PageDefault from "../../../components/PageDefault";
-import FormField from "../../../components/FormFields";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import PageDefault from '../../../components/PageDefault';
+import FormField from '../../../components/FormFields';
+import Button from '../../../components/Menu/components/Button';
 
 function CadastroCategoria() {
   const valoresIniciais = {
-    nome: "",
-    descricao: "",
-    cor: "#000000",
+    nome: '',
+    descricao: '',
+    cor: '#000000',
   };
 
   const [values, setValues] = useState(valoresIniciais);
@@ -21,12 +22,15 @@ function CadastroCategoria() {
   }
 
   function handleChange({ target }) {
-    setValue(target.getAttribute('name'), target.value)
+    setValue(target.getAttribute('name'), target.value);
   }
 
   return (
     <PageDefault>
-      <h1>Cadastro de Categoria: {values.nome}</h1>
+      <h1>
+        Cadastro de Categoria:
+        {values.nome}
+      </h1>
       <form
         onSubmit={(infosDoEvento) => {
           infosDoEvento.preventDefault();
@@ -43,7 +47,7 @@ function CadastroCategoria() {
         />
         <FormField
           label="Descrição:"
-          type="text"
+          type="textarea"
           name="descricao"
           value={values.descricao}
           onChange={handleChange}
@@ -56,7 +60,7 @@ function CadastroCategoria() {
           onChange={handleChange}
         />
 
-        <button>Cadastrar</button>
+        <Button>Cadastrar</Button>
       </form>
       <ul>
         {lista.map((value, indice) => (
