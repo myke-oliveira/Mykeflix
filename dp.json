@@ -1,0 +1,22 @@
+{
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "Libras para Ouvintes",
+      "descricao": "Aqui é onde você que é ouvinte pode aprender a se comuncar em Libras.",
+      "cor": "#cbd1ff"
+    },
+    {
+      "id": 2,
+      "nome": "Portugues para Surdos",
+      "descricao": "Aqui é onde você que é surdo pode aprender a ler e escrever em língua portuguesa.",
+      "cor": "#cbd1ff"
+    },
+    {
+      "id": 3,
+      "nome": "Matemática para Surdos",
+      "descricao": "Aqui é onde você que é surdo pode aprender matemática em Libras.",
+      "cor": "#cbd1ff"
+    }
+  ]
+}
