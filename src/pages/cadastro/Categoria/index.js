@@ -34,6 +34,31 @@ function CadastroCategoria() {
     setLista(categorias);
   }, []);
 
+  async function createCategoria(categoria) {
+    const URL = window.location.href.includes('localhost')
+      ? 'http://localhost:8080/categorias'
+      : 'https://mykeflix.herokuapp.com/categorias';
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const jsondata = JSON.stringify(categoria);
+    console.log(jsondata);
+    const response = await fetch(
+      URL,
+      {
+        method: 'PUT',
+        headers,
+        mode: 'cors',
+        cache: 'default',
+        body: jsondata,
+      },
+    );
+    if (response.status !== 200) {
+      return false;
+    }
+    const data = await response.json();
+    console.log('(data)', data);
+  }
+
   return (
     <PageDefault>
       <h1>
@@ -43,6 +68,8 @@ function CadastroCategoria() {
       <form
         onSubmit={(infosDoEvento) => {
           infosDoEvento.preventDefault();
+          console.log(values);
+          createCategoria(values);
           setLista([...lista, values]);
           setValues(valoresIniciais);
         }}
